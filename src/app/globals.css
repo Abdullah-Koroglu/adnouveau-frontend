@@ -58,3 +58,36 @@ blockquote {
 img {
   @apply my-8 object-cover w-full;
 }
+
+.progress-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.progress {
+  height: 2px;
+  flex-grow: 1;
+  border-radius: 4px;
+  display: flex;
+  background: red;
+  animation-delay: .2s;
+}
+
+.single-progress-container {
+  height: 2px;
+  flex-grow: 1;
+  border-radius: 4px;
+  width: 100%;
+  margin: 0 5px;
+}
+
+.progress.active {
+    animation-name: Loader;
+}
+
+.progress.passed {
+    background-position: 0 0; 
+}

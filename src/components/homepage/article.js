@@ -9,7 +9,7 @@ function createMarkup() {
   return {__html: `Ad Nouveau is an Istanbul based creative advertising agency. Developing <span class='bg-lime-400 px-2 py-1 rounded-2xl text-zinc-500'>Nouveau</span> approach to <span class='bg-lime-400 px-2 py-1 rounded-2xl text-zinc-500'>Ads</span> with the help of Ai and storytelling.`};
 }
 
-export default function article() {
+const article = () => {
   return (
     <div className='text-white w-1/3 rounded-md bg-zinc-500 p-5 justify'>
       <div className='flex w-full justify-between'>
@@ -31,3 +31,5 @@ export default function article() {
     </div>
   )
 }
+
+export default article

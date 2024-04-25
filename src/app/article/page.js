@@ -16,5 +16,5 @@ async function getData() {
   export default async function Page() {
     const data = await getData()
    
-    return <main>{data.data?.map(article => <div>x {article.attributes?.title} <Link href={`/article/${article.id}`}> Go to Article</Link></div>)}</main>
+    return <main>{data.data?.map(article => <div key={article.id}>{article.attributes?.title} <Link href={`/article/${article.id}`}> Go to Article</Link></div>)}</main>
   }
