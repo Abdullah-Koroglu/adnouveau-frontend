@@ -39,11 +39,11 @@ const video = ({ video }) => {
 
 
   return (
-    <div className='w-full h-fit relative rounded-md row-span-2 col-span-2'>
+    <div className='w-full h-fit relative rounded-md md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2'>
       <div className="flex w-full absolute">
         <VideoProgress active={videoIndex} videoList={videosrc} progress={videoProgress} />
       </div>
-      <div className="rounded-md overflow-hidden max-h-[30rem]">
+      <div className="rounded-md overflow-hidden h-96 xl:h-[30rem]">
         <ReactPlayer
           onEnded={playNext}
           onProgress={handleProgress}

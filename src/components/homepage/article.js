@@ -10,18 +10,18 @@ function createMarkup() {
 
 const article = () => {
   return (
-    <div className='h-full w-full row-span-3 text-white rounded-md bg-zinc-500 p-5 justify'>
+    <div className='h-full w-full row-span-3 text-white rounded-md bg-zinc-500 p-5 flex flex-col justify-between'>
       <div className='flex w-full justify-between'>
         <h2 className='text-sm font-semibold'>{title}</h2>
         {/* <p>x</p> */}
         <GiPlainCircle />
       </div>
       <div>
-        <span style={{'--n': 271}} dangerouslySetInnerHTML={createMarkup()} className='text-5xl leading-snug type'>
+        <span style={{'--n': 271}} dangerouslySetInnerHTML={createMarkup()} className='text-2xl md:text-3xl xl:text-5xl leading-snug type'>
         </span>
       </div>
 
-      <div className='flex w-full justify-end mt-10'>
+      <div className='flex w-full justify-end self-end mt-10'>
         <Link className='border-white border px-3 py-2 rounded-md text-lg font-light' href="/article">Read Article</Link>
       </div>
     </div>
