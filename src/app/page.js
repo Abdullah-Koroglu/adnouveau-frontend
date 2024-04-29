@@ -1,7 +1,7 @@
-import Article from "@/components/homepage/article";
-import Video from "@/components/homepage/video";
-import ImageContainer from './../components/homepage/imageContainer';
-import Contact from './../components/homepage/contact';
+import Article from "@/components/homepage/Article";
+import Video from "@/components/homepage/Video";
+import ImageContainer from '../components/homepage/ImageContainer';
+import Contact from '../components/homepage/Contact';
 
 // async function getData() {
 //   const res = await fetch('http://127.0.0.1:1337/api/landing-page?populate=deep')

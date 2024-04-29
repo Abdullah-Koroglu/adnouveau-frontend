@@ -18,7 +18,7 @@ const VideoProgress = ({ active, videoList, progress }) => {
   </div>
 }
 
-const video = ({ video }) => {
+const Video = ({ video }) => {
   const [videoIndex, setVideoIndex] = useState(0)
   const [videoProgress, setVideoProgress] = useState(0)
   let videosrc = ["/videos/zikir_a93440e1a9.mov", "/videos/isikla_oynayan.mp4"];
@@ -43,7 +43,7 @@ const video = ({ video }) => {
       <div className="flex w-full absolute">
         <VideoProgress active={videoIndex} videoList={videosrc} progress={videoProgress} />
       </div>
-      <div className="rounded-md overflow-hidden h-96 xl:h-[30rem]">
+      <div className="rounded-md overflow-hidden h-56 md:h-96 xl:h-[30rem]">
         <ReactPlayer
           onEnded={playNext}
           onProgress={handleProgress}
@@ -60,4 +60,4 @@ const video = ({ video }) => {
   )
 }
 
-export default video
+export default Video

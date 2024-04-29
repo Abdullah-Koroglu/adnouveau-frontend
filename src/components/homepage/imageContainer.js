@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const imageContainer = ({ src, tags, title, color, href }) => {
+const ImageContainer = ({ src, tags, title, color, href }) => {
   return (
     <Link href={href} className={`row-span-2 image-container bg-cover bg-center min-h-56 h-full w-full rounded-md flex bg-no-repeat`} style={{ backgroundImage: "url(/" + src + ")" }}>
       <div
@@ -22,4 +22,4 @@ const imageContainer = ({ src, tags, title, color, href }) => {
   )
 }
 
-export default imageContainer
+export default ImageContainer

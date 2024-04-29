@@ -15,7 +15,7 @@ async function getData({id}) {
   return res.json()
 }
 
-export default async function page({params}) {
+export default async function Page({params}) {
   const data = await getData({id: params.id})
   const image = data.data.attributes.image.data.attributes
 

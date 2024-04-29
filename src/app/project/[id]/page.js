@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function page({params}) {
+export default function Page({params}) {
   return (
     <div>{params.id}</div>
   )

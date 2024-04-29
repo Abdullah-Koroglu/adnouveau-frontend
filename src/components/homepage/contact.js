@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { IoSend } from "react-icons/io5";
 
-const contact = () => {
+const Contact = () => {
   const [active, setActive] = useState(false)
   const [mail, setMail] = useState('')
 
@@ -38,4 +38,4 @@ const contact = () => {
   )
 }
 
-export default contact
+export default Contact
