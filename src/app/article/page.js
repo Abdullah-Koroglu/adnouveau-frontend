@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 async function getData() {
-    const res = await fetch('http://127.0.0.1:1337/api/articles')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/articles`)
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
    

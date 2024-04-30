@@ -59,10 +59,6 @@ img {
   @apply my-8 object-cover w-full;
 }
 
-main {
-  transition: all 500ms ease-in-out;
-}
-
 .progress-container {
   display: flex;
   flex-direction: row;

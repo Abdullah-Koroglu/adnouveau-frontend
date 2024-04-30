@@ -6,7 +6,7 @@ import ThemeSwitch from '@/components/ThemeSwitch';
 export default function Footer() {
 
   return (
-    <footer className="flex justify-between overflow-hidden text-neutral-300	font-semibold">
+    <footer className="flex justify-between overflow-hidden text-neutral-300 font-semibold bg-zinc-100 dark:bg-black">
       <div className="flex flex-col md:flex-row gap-5 text-neutral-500">
         <Link href="/">
           AdNueveau©2024

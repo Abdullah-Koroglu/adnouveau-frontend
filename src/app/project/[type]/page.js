@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 async function getData({ type }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*&filters[type][$eq]=${type}`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -24,7 +24,7 @@ export default async function Page({ params }) {
         const date = new Date(project.attributes.date);
 
         return (<div key={project.id} className="px-2 w-full md:w-1/2 lg:w-1/3 3xl:w-1/4">
-          <Link href={`/project/${project.attributes.type}/${project.id}`}>
+          <Link href={`/project/${params.type}/${project.id}`}>
             <Image
               className="rounded-md"
               src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.formats.medium.url}`}

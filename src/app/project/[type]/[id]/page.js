@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 
 async function getData({id}) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/articles/${id}?populate=*`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/${id}?populate=*`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
@@ -20,11 +20,10 @@ export default async function Page({params}) {
   const image = data.data.attributes.image.data.attributes
 
   return (
-    <>
-    <div>{data.data.id}</div>
-    <Image alt={image.name} width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}/>
+    <div className="w-full px-4">
+    <Image className="w-full rounded-md" alt={image.name} width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}/>
     <div>{data.data.attributes.title}</div>
-    <BlocksRenderer content={data.data.attributes.text} />
-    </>
+    <BlocksRenderer content={data.data.attributes.description} />
+    </div>
   )
 }

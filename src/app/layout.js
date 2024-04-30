@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./Providers";
 import Footer from '@/components/Footer';
+import Breadcrumb from "@/components/Breadcrumb";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,8 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <Providers>
-        <body className={`${inter.className} min-h-screen transition-all duration-300 bg-zinc-100 dark:bg-zinc-900`}>{children}</body>
-        <Footer />
+        <body className={`${inter.className} min-h-screen transition-all duration-500 bg-zinc-100 dark:bg-black`}>
+          <Breadcrumb />
+          {children}
+
+          <Footer />
+        </body>
       </Providers>
     </html>
   );

@@ -23,8 +23,8 @@ const Home = async () => {
 
         <Article />
         <Video />
-        <ImageContainer tags={["VFX", "Editing", "Color Grading", "Compositing", "CGI", "Cleaning", "Music"]} color={'#CED8D4'} src={'test2.jpg'} title={'Post Production'} href={'/project'} />
-        <ImageContainer tags={["Branding", "Concept Design", "Story Board", "Logo Design", "Mailing", "Poster Design", "PM", "Billboard", "AR", "Illustration"]} color={'#C9FF7E'} src={'test1.jpg'} title={'Design'} href={'/project'} />
+        <ImageContainer tags={["VFX", "Editing", "Color Grading", "Compositing", "CGI", "Cleaning", "Music"]} color={'#CED8D4'} src={'test2.jpg'} title={'Post Production'} href={'/project/postproduction'} />
+        <ImageContainer tags={["Branding", "Concept Design", "Story Board", "Logo Design", "Mailing", "Poster Design", "PM", "Billboard", "AR", "Illustration"]} color={'#C9FF7E'} src={'test1.jpg'} title={'Design'} href={'/project/design'} />
         <Contact />
 
       </div>
