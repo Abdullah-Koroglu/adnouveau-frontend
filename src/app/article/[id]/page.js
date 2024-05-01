@@ -1,30 +1,45 @@
+'use client'
+import { useBreadcrumb } from '@/app/Providers'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 
-async function getData({id}) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/articles/${id}?populate=*`)
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
- 
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
- 
-  return res.json()
-}
+import useSWR from 'swr'
 
-export default async function Page({params}) {
-  const data = await getData({id: params.id})
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export default function Page({params}) {
+  const { data, error, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/articles/${params.id}?populate=*`,
+    fetcher
+  )
+  const { setEndBreadcrumbs, endBreadcrumb } = useBreadcrumb()
+  useEffect(() => {
+    if (!error, !isLoading) {
+      setEndBreadcrumbs({
+        title: data.data.attributes.title,
+        id: data.data.id
+      })
+    }
+  },[error, isLoading])
+
+  
+  if (error) return <p>Failed to load.</p>
+  if (isLoading) return <p>Loading...</p>
+  
   const image = data.data.attributes.image.data.attributes
-
   return (
-    <>
-    <div>{data.data.id}</div>
-    <Image alt={image.name} width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}/>
+    <div className="w-full px-4">
+    <Image 
+      className="w-full rounded-2xl" 
+      alt={image.name} 
+      width={image.width} 
+      height={image.height} 
+      src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
+      priority
+    />
     <div>{data.data.attributes.title}</div>
     <BlocksRenderer content={data.data.attributes.text} />
-    </>
+    </div>
   )
 }

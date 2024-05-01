@@ -1,5 +1,6 @@
 
 "use client";
+import Link from "next/link";
 import React, { useState, useRef } from "react";
 import ReactPlayer from "react-player";
 
@@ -21,7 +22,10 @@ const VideoProgress = ({ active, videoList, progress }) => {
 const Video = ({ video }) => {
   const [videoIndex, setVideoIndex] = useState(0)
   const [videoProgress, setVideoProgress] = useState(0)
-  let videosrc = ["/videos/zikir_a93440e1a9.mov", "/videos/isikla_oynayan.mp4"];
+  let videosrc = [
+    // "/videos/zikir_a93440e1a9.mov", 
+    "/videos/video.mp4"
+  ];
 
   const videoRef = useRef(null)
 
@@ -37,13 +41,20 @@ const Video = ({ video }) => {
     setVideoProgress(e.played * 100);
   };
 
+// TODO 100 x 235 ratio
+// TODO 3/4 mobile ration
+// TODO mute tusu gelecek
+// TODO timeline kalinlastir
+// TODO PRODUCTION YAZ
+// TODO Radius niye duzelmedi
+// TODO autoplay
 
   return (
-    <div className='w-full h-fit relative rounded-md md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2'>
+    <Link href="/project/production" className='w-full h-fit relative rounded-2xl md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2'>
       <div className="flex w-full absolute">
         <VideoProgress active={videoIndex} videoList={videosrc} progress={videoProgress} />
       </div>
-      <div className="rounded-md overflow-hidden h-56 md:h-96 xl:h-[30rem]">
+      <div className="rounded-2xl overflow-hidden h-56 md:h-96 xl:h-[30rem]">
         <ReactPlayer
           onEnded={playNext}
           onProgress={handleProgress}
@@ -55,8 +66,11 @@ const Video = ({ video }) => {
           playing={true}
           ref={videoRef}
         />
+        <div className='text-white text-4xl absolute bottom-4 left-4'>
+          Production
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

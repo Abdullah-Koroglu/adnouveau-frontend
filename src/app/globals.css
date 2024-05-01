@@ -69,7 +69,7 @@ img {
 
 .progress {
   transition: all 1s linear;
-  height: 2px;
+  height: .2rem;
   flex-grow: 1;
   border-radius: 4px;
   display: flex;
@@ -78,8 +78,8 @@ img {
 }
 
 .single-progress-container {
-  background-color: #ffffff9d;
-  height: 2px;
+  background-color: #ffffff4f;
+  height: .2rem;
   flex-grow: 1;
   border-radius: 4px;
   width: 100%;
@@ -95,8 +95,8 @@ img {
 }
 
 .type {
-  font-family: monospace;
   color:#0000;
+  line-height: 150%;
   background:
     linear-gradient(-90deg,#ffffff 5px,#0000 0) 10px 0,
     linear-gradient(#ffffff 0 0) 0 0;

@@ -10,19 +10,22 @@ function createMarkup() {
 
 const Article = () => {
   return (
-    <div className='h-full w-full row-span-3 text-white rounded-md bg-zinc-500 p-5 flex flex-col justify-between'>
+    <div className='h-full w-full row-span-3 text-white rounded-2xl bg-zinc-500 p-5 flex flex-col justify-between'>
       <div className='flex w-full justify-between'>
         <h2 className='text-sm font-semibold'>{title}</h2>
         {/* <p>x</p> */}
         <GiPlainCircle />
       </div>
       <div>
-        <span style={{'--n': 271}} dangerouslySetInnerHTML={createMarkup()} className='text-2xl md:text-3xl xl:text-5xl leading-snug type'>
+        {/* <span style={{'--n': 271}} dangerouslySetInnerHTML={createMarkup()} className='text-2xl md:text-3xl xl:text-5xl leading-snug type'>
+        </span> */}
+        <span style={{'--n': 271}} className='text-2xl md:text-3xl xl:text-5xl type'>
+        Ad Nouveau is an Istanbul based creative advertising agency. Developing <span className='text-lime-400'>Nouveau</span> approach to <span className='text-lime-400'>Ads</span> with the help of Ai and storytelling.
         </span>
       </div>
 
       <div className='flex w-full justify-end self-end mt-10'>
-        <Link className='border-white border px-3 py-2 rounded-md text-lg font-light' href="/article">Read Article</Link>
+        <Link className='border-white border px-3 py-2 rounded-2xl text-lg font-normal transition-colors duration-300 hover:bg-white hover:text-zinc-500' href="/article">Read Article</Link>
       </div>
     </div>
   )
