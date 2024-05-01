@@ -1,25 +1,14 @@
 import Article from "@/components/homepage/Article";
 import Video from "@/components/homepage/Video";
-import ImageContainer from '../components/homepage/ImageContainer';
-import Contact from '../components/homepage/Contact';
+import ImageContainer from '@/components/homepage/ImageContainer';
+import Contact from '@/components/homepage/Contact';
 
-// async function getData() {
-//   const res = await fetch('http://127.0.0.1:1337/api/landing-page?populate=deep')
-
-//   if (!res.ok) {
-//     throw new Error('Failed to fetch data')
-//   }
-
-//   return res.json()
-// }
 
 const Home = async () => {
-  // const data = await getData()
-  // const video = data?.data.attributes.Video.video.data.attributes
 
   return (
-    <main className={`flex min-h-screen items-center justify-center p-2 px-8 md:px-16 w-full`}>
-      <div className="flex flex-wrap md:grid md:grid-rows-6 md:grid-cols-2 lg:grid-rows-4 lg:grid-cols-3 gap-4 w-full 3xl:w-2/3">
+    <main className={`flex min-h-screen justify-center p-2 px-8 md:px-16 pb-16 w-full`}>
+      <div className="flex flex-wrap md:grid md:grid-rows-6 md:grid-cols-2 lg:grid-rows-4 lg:grid-cols-3 gap-4 w-full 3xl:w-2/3 h-full">
 
         <Article />
         <Video />

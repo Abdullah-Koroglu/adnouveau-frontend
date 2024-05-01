@@ -131,3 +131,7 @@ img {
 .image-container:hover .image-container-text {
   height: 100%;
 }
+
+.video-container  video {
+  max-width: unset;
+}

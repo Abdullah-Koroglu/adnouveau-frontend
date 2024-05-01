@@ -16,7 +16,7 @@ const ImageContainer = ({ src, tags, title, color, href }) => {
           {
             tags.map(tag => 
               <div 
-                className={[`transition-colors duration-300 border border-zinc-500 px-2 py-1 rounded-2xl text-zinc-600 hover:bg-zinc-500  text-lg xl:text-2xl font-medium ${color === '#C9FF7E' ? 'hover:text-[#C9FF7E]' : 'hover:text-[#CED8D4]'}`
+                className={[`transition-colors duration-300 border border-zinc-500 px-2 py-1 rounded-2xl text-zinc-600 hover:bg-zinc-500 text-sm md:text-lg xl:text-2xl font-medium ${color === '#C9FF7E' ? 'hover:text-[#C9FF7E]' : 'hover:text-[#CED8D4]'}`
                 ]}
                 key={tag}
               >

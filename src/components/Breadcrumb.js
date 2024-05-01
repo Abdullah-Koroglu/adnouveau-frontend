@@ -34,7 +34,7 @@ const Breadcrumb = () => {
                 return (
                   <li key={index} className="breadcrumb-item">
                     {index !== 0 ? <span className="mx-1">/</span> : null}
-                    <Link className={`${index + 1 === pathSegments.length ? 'text-white' : ''} text-nowrap`} href={`/${pathSegments.slice(0, index + 1).join('/')}`}>
+                    <Link className={`${index + 1 === pathSegments.length ? 'text-black dark:text-white' : ''} text-nowrap`} href={`/${pathSegments.slice(0, index + 1).join('/')}`}>
                       {(breadcrumb?.title && index + 1 === pathSegments.length && segmentText.match(/^\d+$/gm)) ? breadcrumb?.title : capitalize(segmentText)}
                     </Link>
                   </li>

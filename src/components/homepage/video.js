@@ -19,7 +19,7 @@ const VideoProgress = ({ active, videoList, progress }) => {
   </div>
 }
 
-const Video = ({ video }) => {
+const Video = () => {
   const [videoIndex, setVideoIndex] = useState(0)
   const [videoProgress, setVideoProgress] = useState(0)
   let videosrc = [
@@ -41,27 +41,26 @@ const Video = ({ video }) => {
     setVideoProgress(e.played * 100);
   };
 
-// TODO 100 x 235 ratio
-// TODO 3/4 mobile ration
-// TODO mute tusu gelecek
-// TODO timeline kalinlastir
-// TODO PRODUCTION YAZ
-// TODO Radius niye duzelmedi
-// TODO autoplay
+  // TODO mute tusu gelecek
+  // TODO autoplay
 
   return (
-    <Link href="/project/production" className='w-full h-fit relative rounded-2xl md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2'>
+    <Link
+      href="/project/production"
+      className='w-full h-fit relative rounded-2xl md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2'
+    >
       <div className="flex w-full absolute">
         <VideoProgress active={videoIndex} videoList={videosrc} progress={videoProgress} />
       </div>
-      <div className="rounded-2xl overflow-hidden h-56 md:h-96 xl:h-[30rem]">
+      <div className="video-container rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[235/100] bg-red-600">
         <ReactPlayer
           onEnded={playNext}
           onProgress={handleProgress}
           url={videosrc[videoIndex]}
-          width="100%"
-          height="auto"
+          width="auto"
+          height="100%"
           controls={false}
+          autoPlay={videosrc.length > 0 ? false : true}
           muted={true}
           playing={true}
           ref={videoRef}
