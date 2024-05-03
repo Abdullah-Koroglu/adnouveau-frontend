@@ -19,7 +19,7 @@ const Article = () => {
       <div>
         {/* <span style={{'--n': 271}} dangerouslySetInnerHTML={createMarkup()} className='text-2xl md:text-3xl xl:text-5xl leading-snug type'>
         </span> */}
-        <span style={{'--n': 271}} className='text-2xl md:text-3xl xl:text-5xl type'>
+        <span style={{'--n': 271}} className='font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl type'>
         Ad Nouveau is an Istanbul based creative advertising agency. Developing <span className='text-lime-400'>Nouveau</span> approach to <span className='text-lime-400'>Ads</span> with the help of Ai and storytelling.
         </span>
       </div>
