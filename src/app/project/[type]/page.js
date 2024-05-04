@@ -2,7 +2,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 async function getData({ type }) {
-  console.log(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*&filters[type][$eq]=${type}`);
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*&filters[type][$eq]=${type}`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.

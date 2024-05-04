@@ -11,9 +11,12 @@ const Contact = () => {
   }
 
   return (
-    <div onMouseEnter={() => setActive(true)} onMouseLeave={handleLeave} className="bg-zinc-100 w-full h-full rounded-2xl overflow-hidden flex flex-col md:max-lg:h-44">
-      <div className={[`transition-all duration-500 ${active ? 'translate-y-[-5rem]' : ''}`]}>
-        <div className="border-3 border-black rounded-5 overflow-hidden mt-5 bg-yellow-200 w-full">
+    <div
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={handleLeave}
+      className="bg-zinc-100 w-full h-full rounded-2xl overflow-hidden flex flex-col md:max-lg:h-44 relative">
+      <div className={[`h-full flex flex-col transition-all duration-500 ${active ? 'translate-y-[-5rem]' : ''}`]}>
+        <div className="border-3 border-black rounded-5 overflow-hidden mt-5 bg-yellow-200 w-full mb-auto">
           <div className="text-right animate-scrolling-text text-2xl xl:text-4xl overflow-visible whitespace-nowrap font-semibold flex gap-2 text-zinc-600 py-2">
             <p className="mb-0">Say Merhaba! / Get in Touch!</p>
             <p className="mb-0">Say Merhaba! / Get in Touch!</p>
@@ -24,11 +27,11 @@ const Contact = () => {
           </div>
         </div>
 
-        <h2 className="text-zinc-600 pt-5 xl:pt-10 px-5 pb-3 font-semibold text-2xl xl:text-4xl">
+        <h2 className="text-zinc-600 mb-0 pb-8 pl-4 lg:pl-8 font-semibold text-2xl xl:text-4xl">
           Contact
         </h2>
       </div>
-      <div className={`transition-all duration-500 ease-in-out justify-around  mb-2 gap-3 px-2 flex  ${active ? 'md:translate-y-[-1rem] xl:translate-y-0' : 'translate-y-[5rem]'}`}>
+      <div className={`absolute bottom-4 w-full transition-all duration-500 ease-in-out justify-around gap-3 px-2 flex  ${!active ? 'bottom-[-10rem]' : ''}`}>
         <input
           type="text"
           value={mail}
