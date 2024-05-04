@@ -1,6 +1,6 @@
 'use client'
 import { usePathname } from 'next/navigation'
-import Link from "next/link";
+import Link from '@/components/TransitionLink';
 import { capitalize } from '@/components/helper/index';
 import { useBreadcrumb } from '@/app/Providers';
 import { useEffect } from 'react';
@@ -32,7 +32,7 @@ const Breadcrumb = () => {
                     break;
                 }
                 return (
-                  <li key={index} className="breadcrumb-item">
+                  <li key={index} className="breadcrumb-item flex">
                     {index !== 0 ? <span className="mx-1">/</span> : null}
                     <Link className={`${index + 1 === pathSegments.length ? 'text-black dark:text-white' : ''} text-nowrap`} href={`/${pathSegments.slice(0, index + 1).join('/')}`}>
                       {(breadcrumb?.title && index + 1 === pathSegments.length && segmentText.match(/^\d+$/gm)) ? breadcrumb?.title : capitalize(segmentText)}

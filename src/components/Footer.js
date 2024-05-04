@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link';
+import Link from '@/components/TransitionLink';
 import ThemeSwitch from '@/components/ThemeSwitch';
 
 export default function Footer() {

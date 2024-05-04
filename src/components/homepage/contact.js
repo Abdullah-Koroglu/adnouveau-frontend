@@ -12,6 +12,7 @@ const Contact = () => {
 
   return (
     <div
+      id='page-element-3'
       onMouseEnter={() => setActive(true)}
       onMouseLeave={handleLeave}
       className="bg-zinc-100 w-full h-full rounded-2xl overflow-hidden flex flex-col md:max-lg:h-44 relative">

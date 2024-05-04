@@ -135,7 +135,7 @@ img {
 
 .image-container-tag {
   opacity: 0;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .container-hovered.image-container-tag{
@@ -145,4 +145,8 @@ img {
 
 .video-container  video {
   max-width: unset;
+}
+
+[id^=page-element] {
+  opacity: 0;
 }

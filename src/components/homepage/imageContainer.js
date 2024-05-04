@@ -1,24 +1,26 @@
 'use client'
-import Link from 'next/link'
 import React, { useState } from 'react'
+import Link from '@/components/TransitionLink';
 
-const ImageContainer = ({ src, tags, title, color, href }) => {
+const ImageContainer = ({ src, tags, title, color, href, id }) => {
   const [active, setActive] = useState([])
-  console.log({active});
   let counter = 0;
+  const handleActivate = () => {
+    const interval = setInterval(() => {
+      if (counter >= tags.length + 3) {
+        clearInterval(interval);
+        counter = 0
+      } else {
+        setActive((prevState) => ([...prevState, counter + 10]))
+        counter++;
+      }
+    }, 100);
+  }
+
   return (
     <Link
-      onMouseEnter={() => {
-        const interval = setInterval(() => {
-          if (counter >= tags.length + 3) {
-            clearInterval(interval);
-            counter = 0
-          } else {
-            setActive((prevState) => ([...prevState, counter + 10]))
-            counter++;
-          }
-        }, 100);
-      }}
+      id={id}
+      onMouseEnter={handleActivate}
       onMouseLeave={() => setActive([])}
       href={href}
       className={`row-span-2 image-container bg-cover bg-center min-h-56 h-full w-full rounded-2xl flex bg-no-repeat`}
@@ -34,7 +36,7 @@ const ImageContainer = ({ src, tags, title, color, href }) => {
           {
             tags.map((tag, index) =>
               <div
-                className={[`${active.length - 3 >= index ? 'container-hovered' : ''} image-container-tag transition-all duration-500 border border-zinc-500 px-2 py-1 rounded-2xl text-zinc-600 hover:bg-zinc-500 text-sm md:text-lg xl:text-2xl font-medium ${color === '#C9FF7E' ? 'hover:text-[#C9FF7E]' : 'hover:text-[#CED8D4]'}`
+                className={[`${active.length - 3 >= index ? 'container-hovered' : ''} image-container-tag transition-all ease-out duration-500 border border-zinc-500 px-2 py-1 rounded-2xl text-zinc-600 hover:bg-zinc-500 text-sm md:text-lg xl:text-2xl font-medium ${color === '#C9FF7E' ? 'hover:text-[#C9FF7E]' : 'hover:text-[#CED8D4]'}`
                 ]}
                 key={tag}
               >

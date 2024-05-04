@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link';
+import Link from '@/components/TransitionLink';
 import { GiPlainCircle } from "react-icons/gi";
 
 const title = `About Us`
@@ -10,7 +10,7 @@ function createMarkup() {
 
 const Article = () => {
   return (
-    <div className='h-full w-full row-span-3 text-white rounded-2xl bg-zinc-500 p-5 flex flex-col justify-between'>
+    <div id='page-element-1' className='h-full w-full row-span-3 text-white rounded-2xl bg-zinc-500 p-5 flex flex-col justify-between'>
       <div className='flex w-full justify-between'>
         <h2 className='text-sm font-semibold'>{title}</h2>
         {/* <p>x</p> */}

@@ -1,5 +1,6 @@
 import Image from "next/image"
-import Link from "next/link"
+import Link from '@/components/TransitionLink';
+
 
 async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/articles?populate=*`)
@@ -19,10 +20,10 @@ export default async function Page() {
 
   return <main className={`flex min-h-screen justify-center p-2`}>
     <div className="flex w-fit h-fit flex-wrap">
-      {data.data?.map(article => {
+      {data.data?.map((article, index) => {
         const image = article.attributes.image ? article.attributes.image.data.attributes : null
 
-        return (<div key={article.id} className="px-2 w-full md:w-1/2 lg:w-1/3 3xl:w-1/4">
+        return (<div id={`page-element-${index + 1}`} key={article.id} className="px-2 w-full md:w-1/2 lg:w-1/3 3xl:w-1/4">
           <Link href={`/article/${article.id}`}>
             <Image
               className="rounded-2xl"

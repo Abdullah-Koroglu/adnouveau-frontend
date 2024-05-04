@@ -1,6 +1,6 @@
 
 "use client";
-import Link from "next/link";
+import Link from '@/components/TransitionLink';
 import React, { useState, useRef } from "react";
 import ReactPlayer from "react-player";
 import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
@@ -45,12 +45,11 @@ const Video = () => {
     setVideoProgress(e.played * 100);
   };
 
-  // TODO mute tusu gelecek
-
   return (
     <Link
+      id="page-element-2"
       href="/project/production"
-      className='w-full h-fit relative rounded-2xl md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2'
+      className='w-full h-fit bg-zinc-400 relative rounded-2xl md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2'
     >
       <div className="flex w-full absolute px-4 mt-2">
         <VideoProgress active={videoIndex} videoList={videosrc} progress={videoProgress} />
