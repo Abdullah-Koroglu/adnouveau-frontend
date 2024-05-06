@@ -7,7 +7,7 @@ import Contact from '@/components/homepage/Contact';
 const Home = async () => {
 
   return (
-    <main className={`flex min-h-screen justify-center p-2 px-8 md:px-16 pb-16 w-full`}>
+    <main className={`flex min-h-screen justify-center p-2 px-4 md:px-8 lg:px-16 pb-16 w-full`}>
       <div className="flex flex-wrap md:grid md:grid-rows-6 md:grid-cols-2 lg:grid-rows-4 lg:grid-cols-3 gap-4 w-full 3xl:w-2/3 h-full">
 
         <Article />

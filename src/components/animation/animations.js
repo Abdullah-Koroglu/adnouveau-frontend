@@ -2,8 +2,13 @@ import gsap from "gsap"
 
 export const animatePageIn = () => {
   var elements = document.querySelectorAll('[id^="page-element-"]');
-
   if (elements?.length > 0) {
+    var elementsArray = Array.prototype.slice.call(elements, 0);
+    const sorted = elementsArray.sort((a,b) => {
+      var textA = a.id.toUpperCase();
+      var textB = b.id.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    })
     let counter = 0
 
     const interval = setInterval(() => {
@@ -12,10 +17,10 @@ export const animatePageIn = () => {
         counter = 0
       } else {
         const tl1 = gsap.timeline()
-        tl1.set(elements[counter], {
+        tl1.set(sorted[counter], {
           opacity: 0,
           scale: 1.1,
-        }).to(elements[counter], {
+        }).to(sorted[counter], {
           opacity: 1,
           scale: 1,
           duration: 0.25,
@@ -30,6 +35,12 @@ export const animatePageOut = (href, router) => {
   var elements = document.querySelectorAll('[id^="page-element-"]');
 
   if (elements?.length > 0) {
+    var elementsArray = Array.prototype.slice.call(elements, 0);
+    const sorted = elementsArray.sort((a,b) => {
+      var textA = a.id.toUpperCase();
+      var textB = b.id.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    })
     let counter = 0
 
     const interval = setInterval(() => {
@@ -39,10 +50,10 @@ export const animatePageOut = (href, router) => {
         router.push(href)
       } else {
         const tl1 = gsap.timeline()
-        tl1.set(elements[counter], {
+        tl1.set(sorted[counter], {
           opacity: 1,
           scale: 1,
-        }).to(elements[counter], {
+        }).to(sorted[counter], {
           opacity: 0,
           scale: 1.1,
           duration: 0.25,

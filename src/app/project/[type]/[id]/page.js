@@ -44,6 +44,14 @@ export default function Page({ params }) {
     }
   };
 
+  //TODO client i ayri ekle
+  //TODO designer i comma ile separate et
+  //TODO tarihi sade yil yap
+  //TODO image yada video olsun
+  //TODO pdf export sayfa sayfa olsun, ve resim formatinda olmasin
+
+
+
 
   if (error) return <p>Failed to load.</p>
   if (isLoading) return <p>Loading...</p>

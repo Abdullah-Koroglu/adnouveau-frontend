@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <Providers>
-        <body className={`${myFont.className} min-h-screen transition-all duration-500 bg-zinc-100 dark:bg-black`}>
+        <body className={`${myFont.className} min-h-screen transition-all duration-500 bg-white dark:bg-black`}>
           <Breadcrumb />
           {children}
 

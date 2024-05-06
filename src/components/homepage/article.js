@@ -10,9 +10,9 @@ function createMarkup() {
 
 const Article = () => {
   return (
-    <div id='page-element-1' className='h-full w-full row-span-3 text-white rounded-2xl bg-zinc-500 p-5 flex flex-col justify-between'>
+    <div id='page-element-1' className='h-full w-full row-span-3 text-white rounded-2xl bg-zinc-500 p-5 flex flex-col justify-between px-8'>
       <div className='flex w-full justify-between'>
-        <h2 className='text-sm font-semibold'>{title}</h2>
+        <h2 className='text-sm font-medium'>{title}</h2>
         {/* <p>x</p> */}
         <GiPlainCircle />
       </div>
@@ -24,7 +24,7 @@ const Article = () => {
         </span>
       </div>
 
-      <div className='flex w-full justify-end self-end mt-10'>
+      <div className='flex w-full justify-end self-end mt-10 mb-4'>
         <Link className='border-white border px-3 py-2 rounded-2xl text-lg font-normal transition-colors duration-300 hover:bg-white hover:text-zinc-500' href="/article">Read Article</Link>
       </div>
     </div>

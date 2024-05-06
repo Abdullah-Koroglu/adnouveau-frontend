@@ -15,7 +15,7 @@ const Contact = () => {
       id='page-element-3'
       onMouseEnter={() => setActive(true)}
       onMouseLeave={handleLeave}
-      className="bg-zinc-100 w-full h-full rounded-2xl overflow-hidden flex flex-col md:max-lg:h-44 relative">
+      className="bg-zinc-100 w-full lg:h-full rounded-2xl overflow-hidden flex flex-col h-44 md:max-lg:h-44 relative">
       <div className={[`h-full flex flex-col transition-all duration-500 ${active ? 'translate-y-[-5rem]' : ''}`]}>
         <div className="border-3 border-black rounded-5 overflow-hidden mt-5 bg-yellow-200 w-full mb-auto">
           <div className="text-right animate-scrolling-text text-2xl xl:text-4xl overflow-visible whitespace-nowrap font-semibold flex gap-2 text-zinc-600 py-2">
@@ -28,7 +28,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <h2 className="text-zinc-600 mb-0 pb-8 pl-4 lg:pl-8 font-semibold text-2xl xl:text-4xl">
+        <h2 className="text-zinc-600 mb-0 pb-8 pl-4 lg:pl-8 font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl">
           Contact
         </h2>
       </div>

@@ -45,39 +45,42 @@ const Video = () => {
     setVideoProgress(e.played * 100);
   };
 
+  //TODO mobilde videoyu ortala, soldan kesme
+
   return (
-    <Link
-      id="page-element-2"
-      href="/project/production"
-      className='w-full h-fit bg-zinc-400 relative rounded-2xl md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2'
-    >
-      <div className="flex w-full absolute px-4 mt-2">
-        <VideoProgress active={videoIndex} videoList={videosrc} progress={videoProgress} />
-      </div>
-      <div className="video-container rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[235/100] ">
-        <ReactPlayer
-          onEnded={playNext}
-          onProgress={handleProgress}
-          url={videosrc[videoIndex]}
-          width="auto"
-          height="100%"
-          controls={false}
-          loop={videosrc.length > 0 ? true : false}
-          muted={mute}
-          playing={true}
-          ref={videoRef}
-        />
-        <div onClick={(e) => {
-          setMute(!mute)
-          e.preventDefault();
-        }} className='text-white text-4xl absolute top-8 right-8'>
-          {!mute ? <FaVolumeUp style={muteStyle}/> : <FaVolumeMute style={muteStyle}/>}
+    <div id="page-element-2" className="w-full h-fit bg-zinc-400 relative rounded-2xl md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2 ">
+      <Link
+        href="/project/production"
+        className=''
+      >
+        <div className="flex w-full absolute px-4 mt-2">
+          <VideoProgress active={videoIndex} videoList={videosrc} progress={videoProgress} />
         </div>
-        <div className='text-white text-4xl absolute bottom-8 left-8'>
-          Production
+        <div className="video-container rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[235/100] flex items-center justify-center">
+          <ReactPlayer
+            onEnded={playNext}
+            onProgress={handleProgress}
+            url={videosrc[videoIndex]}
+            width="auto"
+            height="100%"
+            controls={false}
+            loop={videosrc.length > 0 ? true : false}
+            muted={mute}
+            playing={true}
+            ref={videoRef}
+          />
+          <p className='text-white font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl mb-0 absolute bottom-4 left-4 md:bottom-8 md:left-8'>
+            Production
+          </p>
         </div>
+      </Link>
+      <div onClick={(e) => {
+        e.preventDefault();
+        setMute(!mute)
+      }} className='text-white text-4xl absolute top-8 right-8'>
+        {!mute ? <FaVolumeUp style={muteStyle} /> : <FaVolumeMute style={muteStyle} />}
       </div>
-    </Link>
+    </div>
   )
 }
 

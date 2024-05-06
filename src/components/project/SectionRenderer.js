@@ -1,5 +1,5 @@
 import Image from "next/image"
-
+//TODO TITLER LARI KUCULT VE SOLA AL
 const SectionRenderer = ({ section }) => {
   let image = null
   switch (section.type) {
