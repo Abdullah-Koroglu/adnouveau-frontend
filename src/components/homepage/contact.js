@@ -1,10 +1,21 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoSend } from "react-icons/io5";
 
 const Contact = () => {
   const [active, setActive] = useState(false)
+  const [animate, setAnimate] = useState(false)
   const [mail, setMail] = useState('')
+  const times = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+
+  useEffect(() => {
+    setInterval(() => {
+      setAnimate(true)
+      setTimeout(() => {
+        setAnimate(false)
+      }, 1500);
+    }, 15000);
+  }, [])
 
   const handleLeave = () => {
     mail !== '' ? null : setActive(false)
@@ -16,15 +27,12 @@ const Contact = () => {
       onMouseEnter={() => setActive(true)}
       onMouseLeave={handleLeave}
       className="bg-zinc-100 w-full lg:h-full rounded-2xl overflow-hidden flex flex-col h-44 md:max-lg:h-44 relative">
-      <div className={[`h-full flex flex-col transition-all duration-500 ${active ? 'translate-y-[-5rem]' : ''}`]}>
+      <div className={[`h-full flex flex-col transition-all duration-500 ${animate ? 'translate-y-[-5rem]' : active ? 'translate-y-[-5rem]' : ''}`]}>
         <div className="border-3 border-black rounded-5 overflow-hidden mt-5 bg-yellow-200 w-full mb-auto">
           <div className="text-right animate-scrolling-text text-2xl xl:text-4xl overflow-visible whitespace-nowrap font-semibold flex gap-2 text-zinc-600 py-2">
-            <p className="mb-0">Say Merhaba! / Get in Touch!</p>
-            <p className="mb-0">Say Merhaba! / Get in Touch!</p>
-            <p className="mb-0">Say Merhaba! / Get in Touch!</p>
-            <p className="mb-0">Say Merhaba! / Get in Touch!</p>
-            <p className="mb-0">Say Merhaba! / Get in Touch!</p>
-            <p className="mb-0">Say Merhaba! / Get in Touch!</p>
+            {
+              times.map((time, i) => <p key={i} className="mb-0">Say Merhaba! / Get in Touch!</p>)
+            }
           </div>
         </div>
 
@@ -32,7 +40,7 @@ const Contact = () => {
           Contact
         </h2>
       </div>
-      <div className={`absolute bottom-4 w-full transition-all duration-500 ease-in-out justify-around gap-3 px-2 flex  ${!active ? 'bottom-[-10rem]' : ''}`}>
+      <div className={`absolute bottom-4 w-full transition-all duration-500 ease-in-out justify-around gap-3 px-2 flex  ${!animate ? 'bottom-[-10rem]' : !active ? 'bottom-[-10rem]' : ''}`}>
         <input
           type="text"
           value={mail}

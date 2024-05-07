@@ -124,11 +124,33 @@ img {
   }
 }
 
+@keyframes fadeInAnimation {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.green-nouveau {
+  opacity: 0;
+  animation: fadeInAnimation 1s ease forwards;
+  animation-delay: 5s;
+}
+
+.green-ads {
+  opacity: 0;
+  animation: fadeInAnimation 1s ease forwards;
+  animation-delay: 6s; 
+}
+
 .animate-scrolling-text {
   animation: scrolling-text 30s infinite linear;
 }
 
 .image-container:hover .image-container-text {
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.image-container-text.active {
   height: 100%;
   border-radius: 1rem;
 }

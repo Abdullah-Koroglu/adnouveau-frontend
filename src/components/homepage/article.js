@@ -4,9 +4,6 @@ import { GiPlainCircle } from "react-icons/gi";
 
 const title = `About Us`
 
-function createMarkup() {
-  return { __html: `Ad Nouveau is an Istanbul based creative advertising agency. Developing <span class='bg-lime-400 px-2 py-0.5 rounded-2xl text-zinc-500'>Nouveau</span> approach to <span class='bg-lime-400 px-2 py-0.5 rounded-2xl text-zinc-500'>Ads</span> with the help of Ai and storytelling.` };
-}
 
 const Article = () => {
   return (
@@ -20,7 +17,7 @@ const Article = () => {
         {/* <span style={{'--n': 271}} dangerouslySetInnerHTML={createMarkup()} className='text-2xl md:text-3xl xl:text-5xl leading-snug type'>
         </span> */}
         <span style={{'--n': 271}} className='font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl type'>
-        Ad Nouveau is an Istanbul based creative advertising agency. Developing <span className='text-lime-400'>Nouveau</span> approach to <span className='text-lime-400'>Ads</span> with the help of Ai and storytelling.
+        Ad Nouveau is an Istanbul based creative advertising agency. Developing <span className='text-lime-400 green-nouveau'>Nouveau</span> approach to <span className='text-lime-400 green-ads'>Ads</span> with the help of Ai and storytelling.
         </span>
       </div>
 
