@@ -40,7 +40,7 @@ const Contact = () => {
           Contact
         </h2>
       </div>
-      <div className={`absolute bottom-4 w-full transition-all duration-500 ease-in-out justify-around gap-3 px-2 flex  ${!animate ? 'bottom-[-10rem]' : !active ? 'bottom-[-10rem]' : ''}`}>
+      <div className={`absolute bottom-[-10rem] w-full transition-all duration-500 ease-in-out justify-around gap-3 px-2 flex  ${animate ? 'bottom-[1rem]' : active ? 'bottom-[1rem]' : ''}`}>
         <input
           type="text"
           value={mail}

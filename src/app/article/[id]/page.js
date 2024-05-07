@@ -29,7 +29,7 @@ export default function Page({params}) {
   
   const image = data.data.attributes.image.data.attributes
   return (
-    <div className="w-full px-4">
+    <div className="w-full px-16 3xl:w-2/3 ml-auto mr-auto mb-16">
     <Image 
       className="w-full rounded-2xl" 
       alt={image.name} 

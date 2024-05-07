@@ -32,7 +32,7 @@ const ImageContainer = ({ src, tags, title, color, href, id }) => {
         <div className='text-zinc-600 text-nowrap font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl py-2 pb-8'>
           {title}
         </div>
-        <div className="flex gap-1 flex-wrap self-end image-container-tags">
+        <div className="flex gap-2 flex-wrap self-end image-container-tags">
           {
             tags.map((tag, index) =>
               <div

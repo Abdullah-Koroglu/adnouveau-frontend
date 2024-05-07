@@ -24,10 +24,10 @@ export default function ThemeSwitch() {
   // );
 
   if (resolvedTheme === 'dark') {
-    return <FiSun onClick={() => setTheme('light')} />;
+    return <FiSun className="cursor-pointer hover:text-black hover:dark:text-white transition-all duration-150" onClick={() => setTheme('light')} />;
   }
 
   if (resolvedTheme === 'light') {
-    return <FiMoon onClick={() => setTheme('dark')} />;
+    return <FiMoon className="cursor-pointer hover:text-black hover:dark:text-white transition-all duration-150" onClick={() => setTheme('dark')} />;
   }
 }
