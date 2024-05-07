@@ -1,11 +1,11 @@
 import Image from "next/image"
-//TODO TITLER LARI KUCULT VE SOLA AL
+
 const SectionRenderer = ({ section }) => {
   let image = null
   switch (section.type) {
     case 'text-sadece':
-      return <div className="flex flex-col gap-4 items-center mb-16">
-        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-5xl">
+      return <div className="pagebreak pt-16 justify-center rounded-lg flex flex-col gap-4 mb-16">
+        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-3xl">
           {section.title}
         </h2>
         <p className="dark:text-zinc-300 text-zinc-600 font-medium text-2xl">
@@ -14,8 +14,8 @@ const SectionRenderer = ({ section }) => {
       </div>
     case 'text-altta':
       image = section.image.data[0].attributes
-      return <div className="flex flex-col gap-4 items-center mb-16">
-        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-5xl">
+      return <div className="pagebreak pt-16 justify-center rounded-lg flex flex-col gap-4 mb-16">
+        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-3xl">
           {section.title}
         </h2>
         <Image
@@ -32,8 +32,8 @@ const SectionRenderer = ({ section }) => {
       </div>
     case 'text-sagda':
       image = section.image.data[0].attributes
-      return <div className="flex flex-col gap-4 items-center mb-16">
-        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-5xl">
+      return <div className="pagebreak pt-16 justify-center rounded-lg flex flex-col gap-4 mb-16">
+        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-3xl">
           {section.title}
         </h2>
         <div className="flex items-center justify-center gap-16">
@@ -53,8 +53,8 @@ const SectionRenderer = ({ section }) => {
       </div>
     case 'text-solda':
       image = section.image.data[0].attributes
-      return <div className="flex flex-col gap-4 items-center mb-16">
-        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-5xl">
+      return <div className="pagebreak pt-16 justify-center rounded-lg flex flex-col gap-4 mb-16">
+        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-3xl">
           {section.title}
         </h2>
         <div className="flex items-center justify-center gap-16">
@@ -74,8 +74,8 @@ const SectionRenderer = ({ section }) => {
       </div>
     case 'image-sadece':
       const images = image = section.image.data
-      return <div className="flex flex-col items-center gap-4 mb-16">
-        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-5xl">
+      return <div className="pagebreak pt-16 justify-center rounded-lg flex flex-col mb-16">
+        <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-3xl">
           {section.title}
         </h2>
         <div className="grid grid-cols-4 grid-row-2 gap-4 items-center mb-16">

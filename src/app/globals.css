@@ -172,3 +172,16 @@ img {
 [id^=page-element] {
   opacity: 0;
 }
+
+@media print {
+  .pagebreak { 
+    page-break-before: always; 
+    justify-content: center;
+  } /* page-break-after works, as well */
+  .footer {
+    display: none;
+  }
+  .breadcrumb {
+    display: none;
+  }
+}

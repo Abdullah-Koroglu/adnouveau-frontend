@@ -20,7 +20,7 @@ const Breadcrumb = () => {
     const pathSegments = paths.filter(path => path !== '')
 
     return (
-      <nav aria-label="Breadcrumb" className="bg-white dark:bg-black py-2 px-16 rounded-2xl mt-10">
+      <nav aria-label="Breadcrumb" className="breadcrumb bg-white dark:bg-black py-2 px-16 ml-auto mr-auto 3xl:w-2/3 rounded-2xl mt-10">
         {
           pathSegments.length > 0 ?
             <ol className="list-none flex text-5xl font-bold text-zinc-500">

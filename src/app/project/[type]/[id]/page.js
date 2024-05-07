@@ -3,7 +3,6 @@ import { useBreadcrumb } from '@/app/Providers'
 import SectionRenderer from '@/components/project/SectionRenderer'
 import Image from 'next/image'
 import React, { useEffect, useRef } from 'react'
-import html2canvas from 'html2canvas';
 
 import useSWR from 'swr'
 
@@ -25,24 +24,6 @@ export default function Page({ params }) {
     }
   }, [error, isLoading])
 
-  const handleDownloadImage = async () => {
-    const element = printRef.current;
-    const canvas = await html2canvas(element, { scale: 3 });
-
-    const data = canvas.toDataURL('image/jpg');
-    const link = document.createElement('a');
-
-    if (typeof link.download === 'string') {
-      link.href = data;
-      link.download = 'image.jpg';
-
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      window.open(data);
-    }
-  };
 
   //TODO client i ayri ekle
   //TODO designer i comma ile separate et
@@ -59,7 +40,7 @@ export default function Page({ params }) {
   const image = data.data.attributes.image.data.attributes
   const { title, summary, SectionList, designer, artDirector, date } = data.data.attributes
   return (
-    <div ref={printRef} className="w-full px-16">
+    <div ref={printRef} className="w-full px-16 3xl:w-2/3 ml-auto mr-auto">
       <Image
         className="w-full rounded-2xl"
         alt={image.name}
@@ -82,7 +63,6 @@ export default function Page({ params }) {
       {SectionList.map((section) => {
         return <SectionRenderer key={section.id} section={section} />
       })}
-      <div onClick={handleDownloadImage} className='cursor-pointer hover:text-lg transition-all duration-150 h-16 rounded-lg flex justify-center mb-16'>Export Page</div>
     </div>
   )
 }
