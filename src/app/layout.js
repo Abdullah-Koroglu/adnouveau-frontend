@@ -18,7 +18,6 @@ export default function RootLayout({ children }) {
         <body className={`${myFont.className} min-h-screen transition-all duration-500 bg-white dark:bg-black`}>
           <Breadcrumb />
           {children}
-
           <Footer />
         </body>
       </Providers>

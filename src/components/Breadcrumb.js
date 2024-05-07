@@ -3,11 +3,17 @@ import { usePathname } from 'next/navigation'
 import Link from '@/components/TransitionLink';
 import { capitalize } from '@/components/helper/index';
 import { useBreadcrumb } from '@/app/Providers';
+import { useEffect } from 'react';
+import { animatePageIn } from './animation/animations';
 
 
 const Breadcrumb = () => {
   const pathname = usePathname()
   const { endBreadcrumb: breadcrumb } = useBreadcrumb()
+
+  useEffect(() => {
+    animatePageIn()
+  }, [pathname])
 
   if (pathname) {
     const paths = pathname?.split('/')
