@@ -11,6 +11,7 @@ export const animatePageIn = () => {
     })
     let counter = 0
 
+
     const interval = setInterval(() => {
       if (counter >= elements.length) {
         clearInterval(interval);
@@ -28,6 +29,10 @@ export const animatePageIn = () => {
         counter++;
       }
     }, 100);
+  }else {
+    setTimeout(() => {
+      animatePageIn()
+    }, 200);
   }
 }
 

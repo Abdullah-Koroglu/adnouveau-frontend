@@ -45,10 +45,8 @@ const Video = () => {
     setVideoProgress(e.played * 100);
   };
 
-  //TODO mobilde videoyu ortala, soldan kesme
-
   return (
-    <div id="page-element-2" className="w-full h-fit bg-zinc-400 relative rounded-2xl md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2 ">
+    <div id="page-element-2" className="w-full h-fit  relative rounded-2xl md:max-lg:row-start-0 md:max-lg:row-end-3 md:max-lg:col-start-0 md:max-lg:col-end-3 md:row-span-2 md:col-span-2 ">
       <Link
         href="/project/production"
         className=''
@@ -67,6 +65,7 @@ const Video = () => {
             loop={videosrc.length > 0 ? true : false}
             muted={mute}
             playing={true}
+            playsinline={true}
             ref={videoRef}
           />
           <p className='text-white font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl mb-0 absolute bottom-4 left-4 md:bottom-8 md:left-8'>

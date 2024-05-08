@@ -18,7 +18,7 @@ async function getData() {
 export default async function Page() {
   const data = await getData()
 
-  return <main className={`flex min-h-[calc(100vh-10rem)] justify-center p-2 px-16 `}>
+  return <main className={`flex min-h-[calc(100vh-10rem)] justify-center p-2 px-4 md:px-16 `}>
     <div className="flex w-full h-fit flex-wrap 3xl:w-2/3">
       {data.data?.map((article, index) => {
         const image = article.attributes.image ? article.attributes.image.data.attributes : null

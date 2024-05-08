@@ -26,7 +26,7 @@ const ImageContainer = ({ src, tags, title, color, href, id }) => {
       className={`row-span-2 image-container bg-cover bg-center min-h-56 h-full w-full rounded-2xl flex bg-no-repeat`}
       style={{ backgroundImage: "url(/" + src + ")" }}>
       <div
-        className={"h-20 lg:h-28 hover:rounded-2xl image-container-text transition-h ease-in-out duration-700 self-end w-full rounded-b-2xl mt-auto p-4 lg:p-8 font-semibold flex flex-col justify-between gap-5 overflow-hidden"}
+        className={"h-20 lg:h-28 md:hover:rounded-2xl image-container-text transition-h ease-in-out duration-700 self-end w-full rounded-b-2xl mt-auto p-4 lg:p-8 font-semibold flex flex-col justify-between gap-5 overflow-hidden"}
         style={{ backgroundColor: color }}
       >
         <div className='text-zinc-600 text-nowrap font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl py-2 pb-8'>

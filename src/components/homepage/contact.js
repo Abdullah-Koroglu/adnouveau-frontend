@@ -46,7 +46,7 @@ const Contact = () => {
           value={mail}
           onChange={(e) => setMail(e.target.value)}
           className="px-3 py-2 rounded-2xl border-zinc-600 border bg-transparent w-full dark:text-zinc-600" />
-        <button className="bg-zinc-600 px-5 py-1 rounded-2xl ">
+        <button onClick={() => {console.log(mail)}} className="bg-zinc-600 px-5 py-1 rounded-2xl ">
           <IoSend style={{ color: 'white', fontSize: '2rem' }} />
         </button>
       </div>

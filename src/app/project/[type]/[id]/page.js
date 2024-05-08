@@ -29,19 +29,20 @@ export default function Page({ params }) {
   //TODO designer i comma ile separate et
   //TODO tarihi sade yil yap
   //TODO image yada video olsun
-  //TODO pdf export sayfa sayfa olsun, ve resim formatinda olmasin
-
-
 
 
   if (error) return <p>Failed to load.</p>
   if (isLoading) return <p>Loading...</p>
 
   const image = data.data.attributes.image.data.attributes
-  const { title, summary, SectionList, designer, artDirector, date } = data.data.attributes
+  const { title, summary, SectionList, designer, artDirector, date, client } = data.data.attributes
+  const artDirectors = artDirector?.split(',')
+  const designers = designer?.split(',')
+  console.log({artDirectors, designers});
   return (
-    <div ref={printRef} className="w-full px-16 3xl:w-2/3 ml-auto mr-auto">
+    <div ref={printRef} className="w-full px-4 md:px-16 3xl:w-2/3 ml-auto mr-auto">
       <Image
+        id='page-element-1'
         className="w-full rounded-2xl"
         alt={image.name}
         width={image.width}
@@ -49,19 +50,22 @@ export default function Page({ params }) {
         src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
         priority
       />
-      <div className="flex mt-8 mb-28">
-        <p className="w-1/2 mr-auto dark:text-zinc-300 text-zinc-600 font-medium text-lg">
+      <div
+        id='page-element-2'
+        className="flex mt-8 mb-28 flex-wrap gap-4 flex-col-reverse md:flex-row"
+      >
+        <p className="md:w-[calc(66%-1rem)] mr-auto dark:text-zinc-300 text-zinc-600 font-medium text-lg">
           {summary}
         </p>
-        <div className="w-1/3">
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Client: </div> {title}</div>
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Art Director: </div> {artDirector}</div>
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Designer: </div> {designer}</div>
+        <div className="w-full md:w-1/3">
+          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Client: </div> {client ?? title}</div>
+          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Art Director: </div> <div>{artDirectors?.map((director) => <p className='mb-0' key={director}>{director}</p>)}</div></div>
+          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Designer: </div> <div>{designers?.map((designer) => <p className='mb-0' key={designer}>{designer}</p>)}</div></div>
           <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Date: </div> {date}</div>
         </div>
       </div>
-      {SectionList.map((section) => {
-        return <SectionRenderer key={section.id} section={section} />
+      {SectionList.map((section, index) => {
+        return <SectionRenderer index={index} key={section.id} section={section} />
       })}
     </div>
   )

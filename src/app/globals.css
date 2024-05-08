@@ -145,26 +145,37 @@ img {
   animation: scrolling-text 30s infinite linear;
 }
 
-.image-container:hover .image-container-text {
-  height: 100%;
-  border-radius: 1rem;
+@media screen and (max-width: 640px) {
+  .image-container {
+    height: 30rem;
+  }
+  .image-container-text {
+    height: 15rem;
+  }
 }
 
-.image-container-text.active {
-  height: 100%;
-  border-radius: 1rem;
+@media screen and (min-width: 640px) {
+  .image-container:hover .image-container-text {
+    height: 100%;
+    border-radius: 1rem;
+  }
+  
+  .image-container-text.active {
+    height: 100%;
+    border-radius: 1rem;
+  }
+  
+  .image-container-tag {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  
+  .container-hovered.image-container-tag{
+    opacity: 1;
+    transform: scale(1);
+  }
+  
 }
-
-.image-container-tag {
-  opacity: 0;
-  transform: scale(1.1);
-}
-
-.container-hovered.image-container-tag{
-  opacity: 1;
-  transform: scale(1);
-}
-
 .video-container  video {
   max-width: unset;
 }
