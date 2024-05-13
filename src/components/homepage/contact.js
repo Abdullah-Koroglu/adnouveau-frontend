@@ -29,7 +29,7 @@ const Contact = () => {
       className="bg-zinc-100 w-full lg:h-full rounded-2xl overflow-hidden flex flex-col h-44 md:max-lg:h-44 relative">
       <div className={[`h-full flex flex-col transition-all duration-500 ${animate ? 'translate-y-[-5rem]' : active ? 'translate-y-[-5rem]' : ''}`]}>
         <div className="border-3 border-black rounded-5 overflow-hidden mt-5 bg-yellow-200 w-full mb-auto">
-          <div className="text-right animate-scrolling-text text-2xl xl:text-4xl overflow-visible whitespace-nowrap font-semibold flex gap-2 text-zinc-600 py-2">
+          <div className="text-right animate-scrolling-text text-2xl xl:text-4xl overflow-visible whitespace-nowrap font-medium flex gap-2 text-zinc-600 py-2">
             {
               times.map((time, i) => <p key={i} className="mb-0">Say Merhaba! / Get in Touch!</p>)
             }

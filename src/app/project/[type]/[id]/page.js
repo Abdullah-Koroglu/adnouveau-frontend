@@ -38,9 +38,8 @@ export default function Page({ params }) {
   const { title, summary, SectionList, designer, artDirector, date, client } = data.data.attributes
   const artDirectors = artDirector?.split(',')
   const designers = designer?.split(',')
-  console.log({artDirectors, designers});
   return (
-    <div ref={printRef} className="w-full px-4 md:px-16 3xl:w-2/3 ml-auto mr-auto">
+    <div ref={printRef} className="w-full px-4 md:px-8 lg:px-16 3xl:w-2/3 ml-auto mr-auto">
       <Image
         id='page-element-1'
         className="w-full rounded-2xl"

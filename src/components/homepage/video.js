@@ -59,7 +59,7 @@ const Video = () => {
             onEnded={playNext}
             onProgress={handleProgress}
             url={videosrc[videoIndex]}
-            width="auto"
+            width='auto'
             height="100%"
             controls={false}
             loop={videosrc.length > 0 ? true : false}

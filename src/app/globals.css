@@ -155,7 +155,7 @@ img {
 }
 
 @media screen and (min-width: 640px) {
-  .image-container:hover .image-container-text {
+  .image-container.container-hovered .image-container-text {
     height: 100%;
     border-radius: 1rem;
   }
@@ -178,6 +178,13 @@ img {
 }
 .video-container  video {
   max-width: unset;
+  width: 100%;
+}
+
+.video-container > div {
+  width: 100%;
+  display: flex;
+  overflow: visible;
 }
 
 [id^=page-element] {
@@ -195,4 +202,10 @@ img {
   .breadcrumb {
     display: none;
   }
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }

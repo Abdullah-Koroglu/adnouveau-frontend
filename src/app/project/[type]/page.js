@@ -18,16 +18,16 @@ async function getData({ type }) {
 export default async function Page({ params }) {
   const data = await getData({ type: params.type })
 
-  return <main className={`flex min-h-[calc(100vh-10rem)] justify-center p-2 px-4 md:px-16 `}>
-    <div className="flex w-full h-fit flex-wrap 3xl:w-2/3 gap-4">
+  return <main className={`flex min-h-[calc(100vh-10rem)] justify-center p-2 px-4 md:px-8 lg:px-16 `}>
+    <div className="flex w-full h-fit flex-wrap 3xl:w-2/3 gap-y-4 gap-x-4">
       {data.data?.map((project, index) => {
         const image = project.attributes.image ? project.attributes.image.data.attributes : null
         const date = new Date(project.attributes.date);
 
-        return (<div id={`page-element-${index + 1}`} key={project.id} className="px-2 w-full md:w-1/2 lg:w-1/3 3xl:w-1/4">
+        return (<div id={`page-element-${index + 1}`} key={project.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33%-2rem)] 3xl:w-[calc(25%-3rem)]">
           <Link href={`/project/${params.type}/${project.id}`}>
             <Image
-              className="rounded-2xl mt-0 mb-0"
+              className="rounded-2xl max-lg:my-0"
               src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.formats.medium.url}`}
               width={36}
               height={36}
