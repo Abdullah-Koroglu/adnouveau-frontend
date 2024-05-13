@@ -22,7 +22,7 @@ const Breadcrumb = () => {
     return (
       <nav 
         aria-label="Breadcrumb" 
-        className="breadcrumb bg-white dark:bg-black max-w-[100vw] overflow-hidden py-2 px-4 md:px-8 lg:px-16 ml-auto mr-auto 3xl:w-2/3 rounded-2xl mt-4 md:mt-10"
+        className="breadcrumb bg-white dark:bg-black max-w-[100vw] transition-all duration-300 overflow-hidden py-2 px-4 md:px-8 lg:px-16 ml-auto mr-auto 3xl:w-2/3 rounded-2xl mt-4 md:mt-10"
       >
         {
           pathSegments.length > 0 ?
@@ -42,7 +42,7 @@ const Breadcrumb = () => {
                 return (
                   <li key={index} className="breadcrumb-item flex">
                     {index !== 0 ? <span className="mx-1">/</span> : null}
-                    <Link className={`${index + 1 === pathSegments.length ? 'text-black dark:text-white' : ''} text-nowrap`} href={`/${pathSegments.slice(0, index + 1).join('/')}`}>
+                    <Link className={`${index + 1 === pathSegments.length ? 'text-black dark:text-white' : ''} text-nowrap transition-all duration-150`} href={`/${pathSegments.slice(0, index + 1).join('/')}`}>
                       {(breadcrumb?.title && index + 1 === pathSegments.length && segmentText.match(/^\d+$/gm)) ? breadcrumb?.title : capitalize(segmentText)}
                     </Link>
                   </li>

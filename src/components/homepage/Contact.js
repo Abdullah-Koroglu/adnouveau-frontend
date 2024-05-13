@@ -51,7 +51,7 @@ const Contact = () => {
           Contact
         </h2>
       </div>
-      <div className={`absolute bottom-[-10rem] w-full transition-all duration-500 ease-in-out justify-around gap-3 px-2 flex  ${animate ? 'bottom-[1rem]' : active ? 'bottom-[1rem]' : ''}`}>
+      <div className={`absolute bottom-[-10rem] w-full transition-all duration-500 ease-in-out justify-around gap-3 px-4 lg:px-8 flex mb-2 lg:mb-4  ${animate ? 'bottom-[1rem]' : active ? 'bottom-[1rem]' : ''}`}>
         <input
           type="text"
           value={mail}

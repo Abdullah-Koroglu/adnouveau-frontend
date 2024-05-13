@@ -37,5 +37,4 @@ yarn-error.log*
 next-env.d.ts
 
 # next-video
-public/videos/*
 public/_next-video

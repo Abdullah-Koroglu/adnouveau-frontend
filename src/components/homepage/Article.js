@@ -19,7 +19,7 @@ const Article = () => {
       </div>
 
       <div className='flex w-full justify-end self-end mt-10 mb-2 md:mb-4'>
-        <Link className='border-white hover:bg-white hover:text-zinc-500 transition-all ease-out duration-500 border  px-2 py-1 rounded-2xl  text-sm md:text-lg xl:text-2xl font-medium' href="/article">Read Article</Link>
+        <Link className='border-white hover:bg-white hover:text-zinc-500 transition-all ease-out duration-500 border  px-2 py-1 rounded-2xl  text-sm md:text-lg xl:text-2xl font-medium' href="/article">Read Articles</Link>
       </div>
     </div>
   )
