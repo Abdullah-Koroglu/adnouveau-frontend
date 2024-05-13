@@ -10,9 +10,9 @@ module.exports = {
         //   pathname: "/uploads/**",
         // },
         {
-          protocol: "https",
-          hostname: "1nnv83l9-1337.euw.devtunnels.ms",
-          port: "",
+          protocol: "http",
+          hostname: "185.250.210.23",
+          port: "1337",
           pathname: "/uploads/**",
         }
       ],
