@@ -51,7 +51,7 @@ const Video = () => {
         href="/project/production"
         className=''
       >
-        <div className="flex w-full absolute px-4 mt-2">
+        <div className="flex w-full absolute px-4 mt-2 md:mt-4">
           <VideoProgress active={videoIndex} videoList={videosrc} progress={videoProgress} />
         </div>
         <div className="video-container rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[235/100] flex items-center justify-center">
@@ -76,7 +76,7 @@ const Video = () => {
       <div onClick={(e) => {
         e.preventDefault();
         setMute(!mute)
-      }} className='text-white text-4xl absolute top-8 right-8'>
+      }} className='text-white text-4xl absolute top-8 md:top-12 right-8'>
         {!mute ? <FaVolumeUp style={muteStyle} /> : <FaVolumeMute style={muteStyle} />}
       </div>
     </div>

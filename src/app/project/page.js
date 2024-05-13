@@ -27,6 +27,7 @@ export default async function Page({ params }) {
         return (<div id={`page-element-${index + 1}`} key={project.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33%-2rem)] 3xl:w-[calc(25%-3rem)]">
           <Link href={`/project/${project.attributes.type}/${project.id}`}>
             <Image
+              unoptimized
               className="rounded-2xl max-lg:my-0"
               src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.formats.medium.url}`}
               width={36}

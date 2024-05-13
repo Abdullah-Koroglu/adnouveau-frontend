@@ -57,10 +57,10 @@ export default function Page({ params }) {
           {summary}
         </p>
         <div className="w-full md:w-1/3">
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Client: </div> {client ?? title}</div>
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Art Director: </div> <div>{artDirectors?.map((director) => <p className='mb-0' key={director}>{director}</p>)}</div></div>
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Designer: </div> <div>{designers?.map((designer) => <p className='mb-0' key={designer}>{designer}</p>)}</div></div>
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Date: </div> {date}</div>
+          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Client: </div> <div className="w-1/2">{client ?? title}</div></div>
+          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Art Director: </div> <div className="w-1/2">{artDirectors?.map((director) => <p className='mb-0' key={director}>{director}</p>)}</div></div>
+          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Designer: </div> <div className="w-1/2">{designers?.map((designer) => <p className='mb-0' key={designer}>{designer}</p>)}</div></div>
+          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Date: </div> <div className="w-1/2">{date}</div></div>
         </div>
       </div>
       {SectionList.map((section, index) => {

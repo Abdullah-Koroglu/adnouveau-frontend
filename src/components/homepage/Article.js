@@ -8,7 +8,7 @@ const title = `About Us`
 const Article = () => {
   return (
     <div id='page-element-1' className='h-full w-full row-span-3 text-white rounded-2xl bg-zinc-500 p-4 flex flex-col justify-between  px-4 lg:px-8 '>
-      <div className='flex w-full justify-between'>
+      <div className='flex w-full justify-between mt-2 md:mt-4'>
         <h2 className='text-sm font-medium'>{title}</h2>
         <GiPlainCircle />
       </div>
