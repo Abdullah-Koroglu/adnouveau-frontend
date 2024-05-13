@@ -8,7 +8,7 @@ const Link = (props) => {
 
   const handleClick = () => {
     if (pathname !== props.href) {
-      animatePageOut(props.href, router)
+      animatePageOut(props.href, router, props.out)
     }
   }
 

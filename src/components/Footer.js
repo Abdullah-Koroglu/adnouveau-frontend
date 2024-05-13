@@ -33,9 +33,9 @@ export default function Footer() {
         </Link>
       </div>
       <div className="w-1/3 md:w-1/2 lg:w-1/3  flex flex-col md:flex-row gap-2 text-neutral-500 lg:px-4">
-        <Link className="hover:text-black hover:dark:text-white transition-all w-1/3" href="https://www.behance.net/adnouveau" target="_blank" rel="noopener noreferrer">Behance</Link>
+        <Link className="hover:text-black hover:dark:text-white transition-all w-1/3" out href="https://www.behance.net/adnouveau" target="_blank" rel="noopener noreferrer">Behance</Link>
         {/* <Link className="hover:text-black hover:dark:text-white transition-all w-1/3" href="https://facebook.com/yourFacebookPage" target="_blank" rel="noopener noreferrer">Facebook</Link> */}
-        <Link className="hover:text-black hover:dark:text-white transition-all w-1/3" href="https://www.instagram.com/ad_nouveau" target="_blank" rel="noopener noreferrer">Instagram</Link>
+        <Link className="hover:text-black hover:dark:text-white transition-all w-1/3" out href="https://www.instagram.com/ad_nouveau" target="_blank" rel="noopener noreferrer">Instagram</Link>
       </div>
       <FirstElement className='lg:hidden'/>
       <style jsx>{`
