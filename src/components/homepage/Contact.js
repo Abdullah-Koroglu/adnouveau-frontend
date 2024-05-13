@@ -21,6 +21,17 @@ const Contact = () => {
     mail !== '' ? null : setActive(false)
   }
 
+  async function POST() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/mail-subscribers`, {
+      method: 'POST',
+      body: JSON.stringify({"data": { "name": "Test name" }}),
+    })
+   
+    const data = await res.json()
+    console.log({data});
+    // return NextResponse.json(data)
+  }
+
   return (
     <div
       id='page-element-3'
@@ -46,7 +57,7 @@ const Contact = () => {
           value={mail}
           onChange={(e) => setMail(e.target.value)}
           className="px-3 py-2 rounded-2xl border-zinc-600 border bg-transparent w-full dark:text-zinc-600" />
-        <button onClick={() => {console.log(mail)}} className="bg-zinc-600 px-5 py-1 rounded-2xl ">
+        <button onClick={() => {POST(mail)}} className="bg-zinc-600 px-5 py-1 rounded-2xl ">
           <IoSend style={{ color: 'white', fontSize: '2rem' }} />
         </button>
       </div>
