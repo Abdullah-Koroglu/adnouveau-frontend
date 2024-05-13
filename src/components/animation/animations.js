@@ -39,7 +39,7 @@ export const animatePageIn = () => {
 export const animatePageOut = (href, router, out) => {
   var elements = document.querySelectorAll('[id^="page-element-"]');
 
-  if (out === false) {
+  if (out !== true) {
     if (elements?.length > 0) {
       var elementsArray = Array.prototype.slice.call(elements, 0);
       const sorted = elementsArray.sort((a, b) => {
