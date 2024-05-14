@@ -25,12 +25,6 @@ export default function Page({ params }) {
   }, [error, isLoading])
 
 
-  //TODO client i ayri ekle
-  //TODO designer i comma ile separate et
-  //TODO tarihi sade yil yap
-  //TODO image yada video olsun
-
-
   if (error) return <p>Failed to load.</p>
   if (isLoading) return <p>Loading...</p>
 
@@ -44,8 +38,8 @@ export default function Page({ params }) {
         id='page-element-1'
         className="w-full rounded-2xl"
         alt={image.name}
-        width={image.width}
-        height={image.height}
+        width={image.width ?? 400}
+        height={image.height ?? 400}
         src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
         priority
       />

@@ -16,7 +16,7 @@ const SectionRenderer = ({ section, index }) => {
       </div>
     case 'text-altta':
       image = section.image.data ? section.image.data[0].attributes : null
-      const video = section.video ? section.video.data.attributes : null
+      const video = section.video.data ? section.video.data?.attributes : null
       return <div id={`page-element-${index}`} className="pagebreak pt-16 justify-center rounded-lg flex flex-col gap-4 mb-6 md:mb-16">
         <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-3xl">
           {section.title}
