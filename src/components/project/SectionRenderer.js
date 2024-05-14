@@ -2,7 +2,6 @@ import Image from "next/image"
 import ReactPlayer from "react-player";
 
 const SectionRenderer = ({ section, index }) => {
-  console.log(section);
   let image = null
   switch (section.type) {
     case 'text-sadece':

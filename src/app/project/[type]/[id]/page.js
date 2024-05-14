@@ -6,6 +6,14 @@ import React, { useEffect, useRef } from 'react'
 
 import useSWR from 'swr'
 
+const splitPeople = (string) => {
+  if (string) {
+    console.log(string);
+    return string.split(',')
+  } else {
+    return null
+  }
+}
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Page({ params }) {
@@ -29,9 +37,7 @@ export default function Page({ params }) {
   if (isLoading) return <p>Loading...</p>
 
   const image = data.data.attributes.image.data.attributes
-  const { title, summary, SectionList, designer, artDirector, date, client } = data.data.attributes
-  const artDirectors = artDirector?.split(',')
-  const designers = designer?.split(',')
+  const { title, summary, SectionList, date, client, contributors } = data.data.attributes
   return (
     <div ref={printRef} className="w-full px-4 md:px-8 lg:px-16 3xl:w-2/3 ml-auto mr-auto">
       <Image
@@ -52,8 +58,12 @@ export default function Page({ params }) {
         </p>
         <div className="w-full md:w-1/3">
           <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Client: </div> <div className="w-1/2">{client ?? title}</div></div>
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Art Director: </div> <div className="w-1/2">{artDirectors?.map((director) => <p className='mb-0' key={director}>{director}</p>)}</div></div>
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Designer: </div> <div className="w-1/2">{designers?.map((designer) => <p className='mb-0' key={designer}>{designer}</p>)}</div></div>
+          {contributors?.map((person) => 
+            <div key={person.id} className="text-zinc-500 w-full flex">
+              <div className="font-semibold text-black dark:text-white w-1/2">{person.position}: </div>
+              <div className="w-1/2">{splitPeople(person.name).map((name) => <p className='mb-0' key={name}>{name}</p>)}</div>
+            </div>
+          )}
           <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Date: </div> <div className="w-1/2">{date}</div></div>
         </div>
       </div>
