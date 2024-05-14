@@ -1,6 +1,8 @@
 import Image from "next/image"
+import ReactPlayer from "react-player";
 
 const SectionRenderer = ({ section, index }) => {
+  console.log(section);
   let image = null
   switch (section.type) {
     case 'text-sadece':
@@ -13,19 +15,33 @@ const SectionRenderer = ({ section, index }) => {
         </p>
       </div>
     case 'text-altta':
-      image = section.image.data[0].attributes
+      image = section.image.data ? section.image.data[0].attributes : null
+      const video = section.video ? section.video.data.attributes : null
       return <div id={`page-element-${index}`} className="pagebreak pt-16 justify-center rounded-lg flex flex-col gap-4 mb-6 md:mb-16">
         <h2 className="dark:text-zinc-100 text-zinc-900 font-medium text-3xl">
           {section.title}
         </h2>
-        <Image
+        {image && <Image
           className="w-full rounded-2xl"
           alt={image.name}
           width={image.width}
           height={image.height}
           src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
           priority
+        />}
+        {
+          video && <ReactPlayer
+          
+          url={`${process.env.NEXT_PUBLIC_BACKEND_URL}${video.url}`}
+          width='100%'
+          height="auto"
+          controls={true}
+          loop={true}
+          muted={true}
+          playing={true}
+          playsinline={true}
         />
+        }
         <p className="dark:text-zinc-300 text-zinc-600 font-medium text-lg">
           {section.text}
         </p>
@@ -84,8 +100,8 @@ const SectionRenderer = ({ section, index }) => {
             return <Image
               key={image.id}
               className={`max-md:my-0 rounded-2xl h-full w-full ${index === 0 ? 'col-span-2 row-span-2' :
-                  index === 1 ? 'col-span-2' :
-                    ''
+                index === 1 ? 'col-span-2' :
+                  ''
                 }`}
               alt={name}
               width={width}
