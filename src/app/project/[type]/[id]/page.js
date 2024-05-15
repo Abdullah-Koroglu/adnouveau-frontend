@@ -1,14 +1,12 @@
 'use client'
-import { useBreadcrumb } from '@/app/Providers'
 import SectionRenderer from '@/components/project/SectionRenderer'
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
+import React, {  useRef } from 'react'
 
 import useSWR from 'swr'
 
 const splitPeople = (string) => {
   if (string) {
-    console.log(string);
     return string.split(',')
   } else {
     return null
@@ -18,26 +16,18 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Page({ params }) {
   const printRef = useRef();
-  const { data, error, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/${params.id}?populate=deep,10`,
+  const { data: dataArray, error, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/?filters[slug][$eq]=${params.id}&populate=deep,10`,
     fetcher
   )
-  const { setEndBreadcrumbs } = useBreadcrumb()
-  useEffect(() => {
-    if (!error, !isLoading) {
-      setEndBreadcrumbs({
-        title: data.data.attributes.title,
-        id: data.data.id
-      })
-    }
-  }, [error, isLoading])
 
+  const data = dataArray?.data?.[0]
 
   if (error) return <p>Failed to load.</p>
   if (isLoading) return <p>Loading...</p>
 
-  const image = data.data.attributes.image.data.attributes
-  const { title, summary, SectionList, date, client, contributors } = data.data.attributes
+  const image = data.attributes.image.data.attributes
+  const { title, summary, SectionList, date, contributors } = data.attributes
   return (
     <div ref={printRef} className="w-full px-4 md:px-8 lg:px-16 3xl:w-2/3 ml-auto mr-auto">
       <Image
@@ -57,7 +47,6 @@ export default function Page({ params }) {
           {summary}
         </p>
         <div className="w-full md:w-1/3">
-          <div className="text-zinc-500 w-full flex"><div className="font-semibold text-black dark:text-white w-1/2">Client: </div> <div className="w-1/2">{client ?? title}</div></div>
           {contributors?.map((person) => 
             <div key={person.id} className="text-zinc-500 w-full flex">
               <div className="font-semibold text-black dark:text-white w-1/2">{person.position}: </div>

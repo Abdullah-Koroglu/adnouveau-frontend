@@ -1,8 +1,7 @@
 'use client'
 import { usePathname } from 'next/navigation'
 import Link from '@/components/TransitionLink';
-import { capitalize } from '@/components/helper/index';
-import { useBreadcrumb } from '@/app/Providers';
+import { convertAndCapitalize } from '@/components/helper/index';
 import { useEffect } from 'react';
 import { animatePageIn } from './animation/animations';
 import { FaHashtag } from "react-icons/fa6";
@@ -10,7 +9,6 @@ import { FaHashtag } from "react-icons/fa6";
 
 const Breadcrumb = () => {
   const pathname = usePathname()
-  const { endBreadcrumb: breadcrumb } = useBreadcrumb()
 
   useEffect(() => {
     animatePageIn()
@@ -45,7 +43,7 @@ const Breadcrumb = () => {
                   <li key={index} className="breadcrumb-item flex">
                     {index !== 0 ? <span className="mx-1">/</span> : null}
                     <Link className={`${index + 1 === pathSegments.length ? 'text-black dark:text-white' : ''} text-nowrap transition-all duration-150`} href={`/${pathSegments.slice(0, index + 1).join('/')}`}>
-                      {(breadcrumb?.title && index + 1 === pathSegments.length && segmentText.match(/^\d+$/gm)) ? breadcrumb?.title : capitalize(segmentText)}
+                      {convertAndCapitalize(segmentText)}
                       {index === 0 ? 's' : ''}
                     </Link>
                   </li>

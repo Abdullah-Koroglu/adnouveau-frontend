@@ -1,45 +1,46 @@
-'use client'
-import { useBreadcrumb } from '@/app/Providers'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React from 'react'
 
-import useSWR from 'swr'
+async function getData(params) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/articles/?filters[slug][$eq]=${params.id}&populate=*`)
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
 
-export default function Page({params}) {
-  const { data, error, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/articles/${params.id}?populate=*`,
-    fetcher
-  )
-  const { setEndBreadcrumbs, endBreadcrumb } = useBreadcrumb()
-  useEffect(() => {
-    if (!error, !isLoading) {
-      setEndBreadcrumbs({
-        title: data.data.attributes.title,
-        id: data.data.id
-      })
-    }
-  },[error, isLoading])
+  return res.json()
+}
 
-  
-  if (error) return <p>Failed to load.</p>
-  if (isLoading) return <p>Loading...</p>
-  
-  const image = data.data.attributes.image.data.attributes
+const Page  =  async ({ params }) => {
+  const dataArray = await getData(params)
+  console.log({dataArray});
+
+  const data = dataArray?.data?.[0]
+
+  const image = data.attributes.image.data.attributes
   return (
     <div className="w-full px-4 md:px-16 3xl:w-2/3 ml-auto mr-auto mb-16">
-    <Image 
-      className="w-full rounded-2xl" 
-      alt={image.name} 
-      width={image.width} 
-      height={image.height} 
-      src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
-      priority
-    />
-    <div>{data.data.attributes.title}</div>
-    <BlocksRenderer content={data.data.attributes.text} />
+      <Image
+        id='page-element-1'
+        className="w-full rounded-2xl"
+        alt={image.name}
+        width={image.width}
+        height={image.height}
+        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
+        priority
+      />
+      <div
+        id='page-element-2'
+      >{data.attributes.title}</div>
+      <BlocksRenderer
+        id='page-element-3'
+        content={data.attributes.text} />
     </div>
   )
 }
+
+export default Page;

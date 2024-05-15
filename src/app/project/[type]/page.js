@@ -25,7 +25,7 @@ export default async function Page({ params }) {
         const date = new Date(project.attributes.date);
 
         return (<div id={`page-element-${index + 1}`} key={project.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33%-2rem)] 3xl:w-[calc(25%-3rem)]">
-          <Link href={`/project/${params.type}/${project.id}`}>
+          <Link href={`/project/${params.type}/${project.attributes?.slug}`}>
             <Image
               className="rounded-2xl max-lg:my-0"
               src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.formats.medium.url}`}

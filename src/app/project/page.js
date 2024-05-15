@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from '@/components/TransitionLink';
 
 
-async function getData({ type }) {
+async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
@@ -15,8 +15,8 @@ async function getData({ type }) {
   return res.json()
 }
 
-export default async function Page({ params }) {
-  const data = await getData({ type: params.type })
+export default async function Page() {
+  const data = await getData()
 
   return <main className={`flex min-h-[calc(100vh-10rem)] justify-center mb-4 md:p-2 px-4 md:px-8 lg:px-16`}>
     <div className="flex w-full h-fit flex-wrap 3xl:w-2/3 gap-y-4 gap-x-4">
@@ -25,7 +25,7 @@ export default async function Page({ params }) {
         const date = new Date(project.attributes.date);
 
         return (<div id={`page-element-${index + 1}`} key={project.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33%-2rem)] 3xl:w-[calc(25%-3rem)]">
-          <Link href={`/project/${project.attributes.type}/${project.id}`}>
+          <Link href={`/project/${project.attributes.type}/${project.attributes?.slug}`}>
             <Image
               className="rounded-2xl max-lg:my-0"
               src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.formats.medium.url}`}

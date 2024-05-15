@@ -24,7 +24,7 @@ export default async function Page() {
         const image = article.attributes.image ? article.attributes.image.data.attributes : null
 
         return (<div id={`page-element-${index + 1}`} key={article.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33%-2rem)] 3xl:w-[calc(25%-3rem)]">
-          <Link href={`/article/${article.id}`}>
+          <Link href={`/article/${article?.attributes?.slug}`}>
             <Image
               className="rounded-2xl"
               src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.formats.medium.url}`}
