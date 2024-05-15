@@ -28,7 +28,7 @@ export default async function Page({ params }) {
           <Link href={`/project/${params.type}/${project.attributes?.slug}`}>
             <Image
               className="rounded-2xl max-lg:my-0"
-              src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.formats.medium.url}`}
+              src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image?.url}`}
               width={36}
               height={36}
               sizes="36x36"
