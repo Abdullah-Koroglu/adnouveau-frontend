@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import ReactPlayer from "react-player";
 
@@ -23,8 +24,8 @@ const SectionRenderer = ({ section, index }) => {
         {image && <Image
           className="w-full rounded-2xl"
           alt={image.name}
-          width={image.width}
-          height={image.height}
+          width={image.width ?? 400}
+          height={image.height ?? 400}
           src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
           priority
         />}
@@ -55,8 +56,8 @@ const SectionRenderer = ({ section, index }) => {
           <Image
             className="md:w-1/2 rounded-2xl max-md:my-0"
             alt={image.name}
-            width={image.width}
-            height={image.height}
+            width={image.width ?? 400}
+            height={image.height ?? 400}
             src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
             priority
           />
@@ -79,8 +80,8 @@ const SectionRenderer = ({ section, index }) => {
           <Image
             className="md:w-1/2 rounded-2xl max-md:my-0"
             alt={image.name}
-            width={image.width}
-            height={image.height}
+            width={image.width ?? 400}
+            height={image.height ?? 400}
             src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
             priority
           />

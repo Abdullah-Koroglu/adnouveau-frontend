@@ -29,7 +29,7 @@ const Contact = () => {
    
     const data = await res.json()
     console.log({data});
-    // return NextResponse.json(data)
+    // TODO complete
   }
 
   return (

@@ -17,7 +17,6 @@ async function getData(params) {
 
 const Page  =  async ({ params }) => {
   const dataArray = await getData(params)
-  console.log({dataArray});
 
   const data = dataArray?.data?.[0]
 
@@ -28,8 +27,8 @@ const Page  =  async ({ params }) => {
         id='page-element-1'
         className="w-full rounded-2xl"
         alt={image.name}
-        width={image.width}
-        height={image.height}
+        width={image.width ?? 400}
+        height={image.height ?? 400}
         src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
         priority
       />

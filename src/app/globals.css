@@ -192,6 +192,9 @@ img {
 }
 
 @media print {
+  .hide-on-print {
+    display: none;
+  }
   .pagebreak { 
     page-break-before: always; 
     justify-content: center;

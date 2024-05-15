@@ -9,3 +9,11 @@ export function convertAndCapitalize(str) {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
     .join(' '); // Join the words with spaces
 }
+
+export const splitPeople = (string) => {
+  if (string) {
+    return string.split(',')
+  } else {
+    return null
+  }
+}
