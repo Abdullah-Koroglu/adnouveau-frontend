@@ -3,7 +3,8 @@ import Link from '@/components/TransitionLink';
 
 
 async function getData({ type }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*&filters[type][$eq]=${type}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?filters[type][$eq]=${type}&populate=*`)
+
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
