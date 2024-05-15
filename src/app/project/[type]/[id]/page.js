@@ -4,7 +4,6 @@ import SectionRenderer from '@/components/project/SectionRenderer'
 import Detail from '@/components/project/Detail';
 
 async function getData({ params }) {
-  console.log('test');
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/?filters[slug][$eq]=${params.id}&populate=deep,10`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.

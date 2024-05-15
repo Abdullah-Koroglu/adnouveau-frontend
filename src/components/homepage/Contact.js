@@ -8,6 +8,9 @@ const Contact = () => {
   const [mail, setMail] = useState('')
   const times = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
     setInterval(() => {
       setAnimate(true)
@@ -21,15 +24,51 @@ const Contact = () => {
     mail !== '' ? null : setActive(false)
   }
 
+  const LetterByLetter = (sentence) => {
+    let counter = 0
+
+    const interval = setInterval(() => {
+      if (counter >= sentence.length) {
+        clearInterval(interval);
+
+        const interval2 = setInterval(() => {
+          if (counter < 0) {
+            clearInterval(interval2);
+            counter = 0
+          } else {
+            setDisplayedText(sentence.slice(0, counter))
+            counter--;
+          }
+        }, 100);
+
+      } else {
+        setDisplayedText(sentence.slice(0, counter))
+        counter++;
+      }
+    }, 100);
+  }
+
   async function POST() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/mail-subscribers`, {
-      method: 'POST',
-      body: JSON.stringify({"data": { "name": "Test name" }}),
-    })
-   
-    const data = await res.json()
-    console.log({data});
-    // TODO complete
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/mail-subscribers`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: { "mail": mail } })
+  
+      })
+      const data = await res.json()
+      if (data.data) {
+        LetterByLetter('Mail is Taken!')
+        setMail('')
+      }else {
+        LetterByLetter('Error')
+        console.log(data.error);
+      }
+    } catch (error) {
+      LetterByLetter('Error')
+      console.log(error);
+    }
   }
 
   return (
@@ -47,8 +86,8 @@ const Contact = () => {
           </div>
         </div>
 
-        <h2 className="text-zinc-600 mb-0 pb-8 pl-4 lg:pl-8 font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl">
-          Contact
+        <h2 className="text-zinc-600 w-full mb-0 pb-8 pl-4 lg:pl-8 font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl gap-4">
+          Contact <span className="ml-4">{displayedText}</span>
         </h2>
       </div>
       <div className={`absolute bottom-[-10rem] w-full transition-all duration-500 ease-in-out justify-around gap-3 px-4 lg:px-8 flex mb-2 lg:mb-4  ${animate ? 'bottom-[1rem]' : active ? 'bottom-[1rem]' : ''}`}>
