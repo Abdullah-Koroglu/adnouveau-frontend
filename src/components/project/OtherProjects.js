@@ -3,7 +3,7 @@ import Link from '../TransitionLink'
 import Image from 'next/image';
 
 async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*&pagination[limit]=3&sort[0]=createdAt:desc`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 

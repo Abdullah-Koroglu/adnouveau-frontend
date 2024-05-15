@@ -87,7 +87,7 @@ const Contact = () => {
         </div>
 
         <h2 className="text-zinc-600 w-full mb-0 pb-8 pl-4 lg:pl-8 font-medium text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl gap-4">
-          Contact <span className="ml-4">{displayedText}</span>
+          Contact <span className="ml-2">{displayedText}</span>
         </h2>
       </div>
       <div className={`absolute bottom-[-10rem] w-full transition-all duration-500 ease-in-out justify-around gap-3 px-4 lg:px-8 flex mb-2 lg:mb-4  ${animate ? 'bottom-[1rem]' : active ? 'bottom-[1rem]' : ''}`}>
