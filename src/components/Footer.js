@@ -25,11 +25,11 @@ export default function Footer() {
         <Link className="hover:text-black hover:dark:text-white transition-all w-1/3" href="/">
           Home
         </Link>
-        <Link className="hover:text-black hover:dark:text-white transition-all w-1/3" href="/project/design">
-          Design
+        <Link className="hover:text-black hover:dark:text-white transition-all w-1/3" href="/project">
+          Works
         </Link>
         <Link className="hover:text-black hover:dark:text-white transition-all w-1/3" href="/article">
-          Article
+          Articles
         </Link>
       </div>
       <div className="w-1/3 md:w-1/2 lg:w-1/3  flex flex-col md:flex-row gap-2 text-neutral-500 lg:px-2">
