@@ -5,9 +5,11 @@ import { convertAndCapitalize } from '@/components/helper/index';
 import { useEffect } from 'react';
 import { animatePageIn } from './animation/animations';
 import { FaHashtag } from "react-icons/fa6";
+import { headers } from 'next/headers'
 
 
 const Breadcrumb = () => {
+  const headersList = headers()
   const pathname = usePathname()
 
   useEffect(() => {
@@ -19,7 +21,7 @@ const Breadcrumb = () => {
     const pathSegments = paths.filter(path => path !== '')
 
     return (
-      <nav
+      <div
         aria-label="Breadcrumb"
         className="breadcrumb max-w-[100vw] transition-all duration-300 overflow-hidden py-2 px-4 md:px-8 lg:px-16 ml-auto mr-auto 3xl:w-2/3 rounded-2xl mt-4 md:mt-10"
         style={{ display: 'flex' }}
@@ -52,7 +54,7 @@ const Breadcrumb = () => {
             </ol> :
             null}
         <FaHashtag className="opacity-0" />
-      </nav>
+      </div>
     );
   }
 

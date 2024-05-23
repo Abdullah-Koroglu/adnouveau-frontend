@@ -2,6 +2,7 @@ import OtherProjects from '@/components/project/OtherProjects'
 import SectionRenderer from '@/components/project/SectionRenderer'
 
 import Detail from '@/components/project/Detail';
+import { headers } from 'next/headers'
 
 async function getData({ params }) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/?filters[slug][$eq]=${params.id}&populate=deep,10`)
@@ -17,6 +18,8 @@ async function getData({ params }) {
 }
 
 const Page = async ({ params }) => {
+  const headersList = headers()
+
   const {data: dataArray} = await getData({ params })
   const data = dataArray[0]
   

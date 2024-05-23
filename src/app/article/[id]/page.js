@@ -2,6 +2,8 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Image from 'next/image'
 import React from 'react'
 
+import { headers } from 'next/headers'
+
 async function getData(params) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/articles/?filters[slug][$eq]=${params.id}&populate=*`)
   // The return value is *not* serialized
@@ -16,6 +18,7 @@ async function getData(params) {
 }
 
 const Page  =  async ({ params }) => {
+  const headersList = headers()
   const dataArray = await getData(params)
 
   const data = dataArray?.data?.[0]

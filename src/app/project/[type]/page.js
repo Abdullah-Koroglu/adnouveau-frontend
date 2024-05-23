@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from '@/components/TransitionLink';
 
+import { headers } from 'next/headers'
 
 async function getData({ type }) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?filters[type][$eq]=${type}&populate=*`)
@@ -17,6 +18,7 @@ async function getData({ type }) {
 }
 
 export default async function Page({ params }) {
+  const headersList = headers()
   const data = await getData({ type: params.type })
 
   return <main className={`flex min-h-[calc(100vh-10rem)] justify-center p-2 px-4 md:px-8 lg:px-16 `}>
