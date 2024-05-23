@@ -5,11 +5,9 @@ import { convertAndCapitalize } from '@/components/helper/index';
 import { useEffect } from 'react';
 import { animatePageIn } from './animation/animations';
 import { FaHashtag } from "react-icons/fa6";
-import { headers } from 'next/headers'
 
 
 const Breadcrumb = () => {
-  const headersList = headers()
   const pathname = usePathname()
 
   useEffect(() => {
