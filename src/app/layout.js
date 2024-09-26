@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <ThemeProvider>
+      {/* <ThemeProvider> */}
       {/* <Providers> */}
         <body className={`${myFont.className} min-h-[calc(100vh-10rem)] transition-all duration-500 bg-white dark:bg-black`}>
           <Breadcrumb />
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </body>
       {/* </Providers> */}
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </html>
   );
 }
