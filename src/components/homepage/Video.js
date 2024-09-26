@@ -25,20 +25,10 @@ const Video = () => {
   const [videoIndex, setVideoIndex] = useState(0)
   const [videoProgress, setVideoProgress] = useState(0)
   const [mute, setMute] = useState(true)
-  const [isClient, setIsClient] = useState(false); // Add this
   let videosrc = ["/videos/video.mp4"];
-  const videoRef = useRef(null)
-
-  useEffect(() => {
-    setIsClient(true); // Now ensures the component renders after mount
-  }, []);
-
-  if (!isClient) {
-    return null; // Ensures no mismatches between server and client
-  }
-
   const muteStyle = { color: 'white', fontSize: '1.5rem' }
 
+  const videoRef = useRef(null)
 
   const playNext = () => {
     videoIndex + 1 === videosrc.length ?
