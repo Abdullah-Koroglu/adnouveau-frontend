@@ -16,15 +16,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      {/* <Providers> */}
-        <body className={`${myFont.className} min-h-[calc(100vh-10rem)] transition-all duration-500 bg-white dark:bg-black`}>
-      <ThemeProvider attribute="class" defaultTheme='system' enableSystem>
+      <body className={`${myFont.className} min-h-[calc(100vh-10rem)] transition-all duration-500 bg-white dark:bg-black`}>
+        <ThemeProvider attribute="class" defaultTheme='system' enableSystem>
           <Breadcrumb />
           {children}
           <Footer />
-      </ThemeProvider>
-        </body>
-      {/* </Providers> */}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

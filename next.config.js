@@ -10,9 +10,8 @@ module.exports = {
         //   pathname: "/uploads/**",
         // },
         {
-          protocol: "http",
-          hostname: "185.250.210.23",
-          port: "1337",
+          // protocol: "http",
+          hostname: "ad-nouveau.com",
           pathname: "/uploads/**",
         }
       ],
