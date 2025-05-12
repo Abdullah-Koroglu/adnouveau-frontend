@@ -26,6 +26,7 @@ export default async function Page() {
         const image = project.attributes.image ? project.attributes.image.data.attributes : null
         const date = new Date(project.attributes.date);
 
+        if (project.attributes.unlisted === true) return null
         return (<div id={`page-element-${index + 1}`} key={project.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33%-2rem)] 3xl:w-[calc(25%-3rem)]">
           <Link href={`/project/${project.attributes.type}/${project.attributes?.slug}`}>
             <Image
