@@ -5,7 +5,7 @@ import Image from 'next/image';
 async function getData() {
   // Get all projects that are unlited is false or null
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?filters[$or][0][unlisted][$eq]=false[$or][1][unlisted][$null]&populate=*&pagination[limit]=3&sort[0]=createdAt:desc`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?filters[unlisted][$not]=true&populate=*&pagination[limit]=3&sort[0]=createdAt:desc`
   )
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
