@@ -13,6 +13,11 @@ module.exports = {
           // protocol: "http",
           hostname: "ad-nouveau.com",
           pathname: "/uploads/**",
+        },
+        {
+          protocol: "http",
+          hostname: "45.195.75.242",
+          pathname: "/uploads/**",
         }
       ],
     },

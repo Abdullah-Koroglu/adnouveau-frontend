@@ -5,7 +5,7 @@ import Detail from '@/components/project/Detail';
 import { headers } from 'next/headers'
 
 async function getData({ params }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/?filters[slug][$eq]=${params.id}&populate=deep,10`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/?filters[slug][$eq]=${params.id}&populate=deep,10&sort[0]=order:desc`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 

@@ -4,7 +4,7 @@ import Link from '@/components/TransitionLink';
 import { headers } from 'next/headers'
 
 async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?populate=*&sort[0]=order:desc`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
